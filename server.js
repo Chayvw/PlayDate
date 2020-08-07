@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 const app = express();
+const UserController = require("./models/user");
 
 const PORT = process.env.PORT || 3001;
 
@@ -23,7 +24,7 @@ app.get("*", (req, res) => {
 });
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/mern-starter", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/playdatedb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -34,6 +35,8 @@ mongoose
     console.log("Unable to connect to database.");
     console.log(err);
   });
+
+app.use(UserController);
 
 app.listen(PORT, () => {
   console.log(`Express server running on http://localhost:${PORT}`);

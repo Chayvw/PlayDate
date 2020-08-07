@@ -1,9 +1,11 @@
-
-    import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./containers/Home/Home";
 import NoMatch from "./containers/NoMatch/NoMatch";
+import SignUp from "./containers/SignUp/SignUp";
+import Login from "./containers/Login/Login";
+import NavBar from "./components/NavBar";
 
 function App() {
   useEffect(() => {
@@ -18,8 +20,11 @@ function App() {
   }, []);
   return (
     <Router>
+      <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/login" component={Login} />
         <Route component={NoMatch} />
       </Switch>
     </Router>
@@ -27,5 +32,3 @@ function App() {
 }
 
 export default App;
-  
-
