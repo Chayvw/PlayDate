@@ -1,6 +1,6 @@
 module.exports = {
     User: require("./User"),
     Profile: require("./Profile"),
-    PlayDate: require("./playDate")
+    PlayDate: require("./PlayDate")
   };
   
