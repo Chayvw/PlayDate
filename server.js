@@ -5,6 +5,7 @@ const path = require("path");
 const app = express();
 const UsersController = require("./controllers/usersController");
 const ProfilesController = require("./controllers/profilesController");
+const playDateController = require("./controllers/playDateController")
 
 const PORT = process.env.PORT || 3001;
 
@@ -21,6 +22,7 @@ app.get("/api/config", (req, res) => {
 
 app.use(UsersController);
 app.use(ProfilesController);
+app.use(playDateController);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
