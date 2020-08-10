@@ -1,6 +1,6 @@
 module.exports = {
     User: require("./UserModel"),
-    Profile: require("./Profile"),
-    PlayDate: require("./PlayDate")
+    Profile: require("./ProfileModel"),
+    PlayDate: require("./PlayDateModel")
   };
   
