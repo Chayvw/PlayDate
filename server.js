@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 const app = express();
-const User = require("./models/User");
-const ProfileController = require("./controllers/profilesController");
+const UsersController = require("./controllers/usersController");
+const ProfilesController = require("./controllers/profilesController");
 
 const PORT = process.env.PORT || 3001;
 
@@ -19,7 +19,8 @@ app.get("/api/config", (req, res) => {
   });
 });
 
-app.use(ProfileController);
+app.use(UsersController);
+app.use(ProfilesController);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
@@ -37,8 +38,6 @@ mongoose
     console.log("Unable to connect to database.");
     console.log(err);
   });
-
-app.use(User);
 
 app.listen(PORT, () => {
   console.log(`Express server running on http://localhost:${PORT}`);
