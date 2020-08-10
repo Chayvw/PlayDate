@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/api/signup", (req, res) => {
-res.send("Its working")
+  res.send("Its working");
 });
 
 router.post("/api/signup", (req, res) => {
