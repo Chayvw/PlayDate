@@ -6,6 +6,7 @@ import NoMatch from "./containers/NoMatch/NoMatch";
 import SignUp from "./containers/SignUp/SignUp";
 import Login from "./containers/Login/Login";
 import NavBar from "./components/NavBar";
+import Profile from "./containers/Profile/Profile";
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/profile" component={Profile} />
         <Route component={NoMatch} />
       </Switch>
     </Router>
