@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 const app = express();
-const UserController = require("./models/user");
+const User = require("./models/User");
 
 const PORT = process.env.PORT || 3001;
 
@@ -36,7 +36,7 @@ mongoose
     console.log(err);
   });
 
-app.use(UserController);
+app.use(User);
 
 app.listen(PORT, () => {
   console.log(`Express server running on http://localhost:${PORT}`);
