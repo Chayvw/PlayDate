@@ -12,7 +12,7 @@ const db = require("../models");
 //         res.json(err);
 //       });
 //   });
-  
+
 //   app.get("/populateduser", (req, res) => {
 //     db.User.find({})
 //       .populate("notes")
@@ -25,23 +25,18 @@ const db = require("../models");
 //   });
 
 router.post("/api/playdate", (req, res) => {
+    const id = "5f3198a236bd9ece99c980dd"
     db.PlayDate.create(req.body)
-      .then((response) => {
-        res.json({
-          error: false,
-          data: response,
-          message: "Success!",
+        .then(({ _id }) => db.User.findOneAndUpdate({_id: id}, { $push: { playdates: _id } }, { new: true }))
+        .then(dbUser => {
+            res.json(dbUser);
+        })
+        .catch(err => {
+            res.json(err);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({
-          error: true,
-          data: null,
-          message: "Unable to create profile",
-        });
-      });
-  });
-  
-  module.exports = router;
-  
+});
+          
+    
+
+
+module.exports = router;

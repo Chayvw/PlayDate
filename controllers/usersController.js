@@ -55,6 +55,17 @@ router.post("/api/login", (req, res) => {
         message: "Unable to create user",
       });
     });
+
+    // router.get("/api/populateduser", (req, res) => {
+    //   db.User.find({})
+    //     .populate("playdate")
+    //     .then(dbUser => {
+    //       res.json(dbUser);
+    //     })
+    //     .catch(err => {
+    //       res.json(err);
+    //     });
+    // });
 });
 
 module.exports = router;
