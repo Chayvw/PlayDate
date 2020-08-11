@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -54,9 +55,9 @@ function NewEvent() {
       .get("/api/newplaydate")
       .then((response) => {
         console.log(response.data);
-        setState({
-          events: response.data.data,
-        });
+        // setState({
+        //   events: response.data.data,
+        // });
       })
       .catch((err) => {
         console.log(err);
