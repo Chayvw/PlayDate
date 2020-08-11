@@ -1,6 +1,4 @@
 import React from "react";
-import axios from "axios";
-
 import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
@@ -8,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 function Profile(props) {
-  const [state, setState] = React.useState({
+  const [state, ] = React.useState({
     profiles: [
       {
         name: "Spot",
