@@ -5,7 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 const NavBar = (props) => {
   return (
     <Navbar>
-      <Toolbar>Hello</Toolbar>
+      <Toolbar>PlayDate</Toolbar>
     </Navbar>
   );
 };
