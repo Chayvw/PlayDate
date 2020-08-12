@@ -64,6 +64,26 @@ router.put("/api/playdate/:id", (req, res) => {
   );
 });
 
+// get route by id
+router.get("/api/playdate/:id", (req, res) => {
+  console.log(req.body, req.params);
+  db.PlayDate.findOne({ _id: req.params.id }).then((response) => {
+    res.json({
+      error: false,
+      data: response,
+      message: "Success!",
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({
+      error: true,
+      data: null,
+      message: "Unable to get playdate by id",
+    });
+  });
+});
+
 router.delete("/api/playdate/:id", (req, res) => {
   db.PlayDate.deleteOne(
     {

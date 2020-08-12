@@ -1,6 +1,7 @@
 import React from "react";
 
 const PlayDateForm = (props) => {
+
   return (
     <div>
       <form
@@ -18,7 +19,6 @@ const PlayDateForm = (props) => {
             onChange={(event) => {
               props.setName(event.target.value);
             }}
-
           />
         </div>
         <br />
