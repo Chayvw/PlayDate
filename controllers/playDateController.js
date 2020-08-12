@@ -2,82 +2,82 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-// Create 
+// Create
 router.post("/api/playdate", (req, res) => {
-    db.PlayDate.create(req.body)
-      .then((createdPlayDate) => {
-        res.json({
-          error: false,
-          data: createdPlayDate,
-          message: "Successfully created new play date",
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({
-          error: true,
-          data: null,
-          message: "Unable to create play date",
-        });
+  db.PlayDate.create(req.body)
+    .then((createdPlayDate) => {
+      res.json({
+        error: false,
+        data: createdPlayDate,
+        message: "Successfully created new play date",
       });
-  });
-// Read 
-  router.get("/api/playdate", (req, res) => {
-    db.PlayDate.find({})
-      .then((foundPlaydate) => {
-        res.json({
-          error: false,
-          data: foundPlaydate,
-          message: "Successfully found all play dates.",
-        });
-      })
-      .catch((err) => {
-        res.status(500).json({
-          error: true,
-          data: null,
-          message: "Unable to retrieve all play date ",
-        });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to create play date",
       });
-  });
-// Update 
+    });
+});
+// Read
+router.get("/api/playdate", (req, res) => {
+  db.PlayDate.find({})
+    .then((foundPlaydate) => {
+      res.json({
+        error: false,
+        data: foundPlaydate,
+        message: "Successfully found all play dates.",
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: true,
+        data: null,
+        message: "Unable to retrieve all play date ",
+      });
+    });
+});
+// Update
 router.put("/api/playdate/:id", (req, res) => {
-    console.log(req.body, req.params)
-    db.PlayDate.updateOne(
-      {
-        _id: (req.params.id)
-      },
-      {
-        $set: {
-          name: req.body.name,
-          date: req.body.date,
-          location: req.body.location,
+  console.log(req.body, req.params);
+  db.PlayDate.updateOne(
+    {
+      _id: req.params.id,
+    },
+    {
+      $set: {
+        name: req.body.name,
+        date: req.body.date,
+        location: req.body.location,
         //   modified: Date.now()
-        }
       },
-      (error, data) => {
-        if (error) {
-          res.send(error);
-        } else {
-          res.send(data);
-        }
+    },
+    (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.send(data);
       }
-    );
-  });
+    }
+  );
+});
 
-  router.delete("/api/playdate/:id", (req, res) => {
-    db.PlayDate.deleteOne(
-      {
-        _id: (req.params.id)
-      },
-      (error, data) => {
-        if (error) {
-          res.send(error);
-        } else {
-          res.send(data);
-        }
+router.delete("/api/playdate/:id", (req, res) => {
+  db.PlayDate.deleteOne(
+    {
+      _id: req.params.id,
+    },
+    (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.send(data);
       }
-    );
-  });
+    }
+  );
+});
 
 // router.get("/api/ingredients/:id", (req, res) => {
 //     db.Ingredient.findById(req.params.id)
@@ -96,7 +96,6 @@ router.put("/api/playdate/:id", (req, res) => {
 //         });
 //       });
 //   });
-
 
 // .post("/submit", ({ body }, res) => {
 //     db.Note.create(body)
@@ -131,8 +130,5 @@ router.put("/api/playdate/:id", (req, res) => {
 //             res.json(err);
 //         });
 // });
-          
-    
-
 
 module.exports = router;
