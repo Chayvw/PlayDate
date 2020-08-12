@@ -32,6 +32,7 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/playdate" component={PlayDate} />
         <Route exact path="/newplaydate" component={NewPlayDate} />
+        <Route exact path="/newplaydate/:id" component={NewPlayDate} />
         <Route component={NoMatch} />
       </Switch>
     </Router>
