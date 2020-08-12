@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
+import Navbar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
 
-class NavBar extends Component {
-  render() {
-    return (
-      <div>
-        <h1>NavBar here </h1>
-      </div>
-    );
-  }
-}
+const NavBar = (props) => {
+  return (
+    <Navbar>
+      <Toolbar>PlayDate</Toolbar>
+    </Navbar>
+  );
+};
 
 export default NavBar;
