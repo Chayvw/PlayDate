@@ -8,7 +8,7 @@ import Login from "./containers/Login/Login";
 import NavBar from "./components/NavBar";
 import Profile from "./containers/Profile/Profile";
 import PlayDate from "./containers/PlayDate/PlayDate";
-import NewPlayDate from "./containers/NewPlayDate/NewPlayDate";
+// import NewPlayDate from "./containers/NewPlayDate/NewPlayDate";
 
 function App() {
   useEffect(() => {
@@ -31,7 +31,8 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/playdate" component={PlayDate} />
-        <Route exact path="/newplaydate" component={NewPlayDate} />
+        {/* <Route exact path="/newplaydate" component={NewPlayDate} /> */}
+
         <Route component={NoMatch} />
       </Switch>
     </Router>
