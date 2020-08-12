@@ -1,54 +1,104 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import PlayDateForm from "../../components/PlayDateForm";
 
-class NewPlayDate extends Component {
-  state = {
-    name: "",
-    date: "",
-    location: "",
-  };
+const NewPlayDate = (props) => {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [location, setLocation] = useState("");
 
-  handleInputChange = (event) => {
-    const { name, date, location, value } = event.target;
-    this.setState({
-      [name]: value,
-      [date]: value,
-      [location]: value,
-    });
-  };
+  // const handleInputChange = (event) => {
+  //   const { name, date, location, value } = event.target;
+  //   this.setState({
+  //     [name]: value,
+  //     [date]: value,
+  //     [location]: value,
+  //   });
+  // };
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/api/playdate", this.state)
+      .post("/api/playdate", { name, date, location })
       .then((response) => {
         console.log(response.data);
         // When clicking submit will redirect to playdate page
-        this.props.history.push("/playdate");
+        props.history.push("/playdate");
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  render() {
-    return (
-      <div className="container">
-        <h1>PlayDate Event</h1>
-        <PlayDateForm
-          handleSubmit={this.handleSubmit}
-          handleInputChange={this.handleInputChange}
-          name={this.state.name}
-          date={this.state.date}
-          location={this.state.location}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      <h1>PlayDate Event</h1>
+      <PlayDateForm
+        handleSubmit={handleSubmit}
+        setName={setName}
+        setDate={setDate}
+        setLocation={setLocation}
+        name={name}
+        date={date}
+        location={location}
+      />
+    </div>
+  );
+};
 
 export default NewPlayDate;
+
+// import React, { Component } from "react";
+// import axios from "axios";
+// import PlayDateForm from "../../components/PlayDateForm";
+
+// class NewPlayDate extends Component {
+//   state = {
+//     name: "",
+//     date: "",
+//     location: "",
+//   };
+
+//   handleInputChange = (event) => {
+//     const { name, date, location, value } = event.target;
+//     this.setState({
+//       [name]: value,
+//       [date]: value,
+//       [location]: value,
+//     });
+//   };
+
+//   handleSubmit = (event) => {
+//     event.preventDefault();
+//     axios
+//       .post("/api/playdate", this.state)
+//       .then((response) => {
+//         console.log(response.data);
+//         // When clicking submit will redirect to playdate page
+//         this.props.history.push("/playdate");
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
+
+//   render() {
+//     return (
+//       <div className="container">
+//         <h1>PlayDate Event</h1>
+//         <PlayDateForm
+//           handleSubmit={this.handleSubmit}
+//           handleInputChange={this.handleInputChange}
+//           name={this.state.name}
+//           date={this.state.date}
+//           location={this.state.location}
+//         />
+//       </div>
+//     );
+//   }
+// }
+
+// export default NewPlayDate;
 
 // import React from 'react';
 // import Button from '@material-ui/core/Button';

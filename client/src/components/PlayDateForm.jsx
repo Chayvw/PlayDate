@@ -15,7 +15,10 @@ const PlayDateForm = (props) => {
             placeholder="Event Name"
             name="name"
             value={props.name}
-            onChange={props.handleInputChange}
+            onChange={(event) => {
+              props.setName(event.target.value);
+            }}
+
           />
         </div>
         <br />
@@ -26,7 +29,9 @@ const PlayDateForm = (props) => {
             type="date"
             name="date"
             value={props.date}
-            onChange={props.handleInputChange}
+            onChange={(event) => {
+              props.setDate(event.target.value);
+            }}
           />
         </div>
         <br />
@@ -38,7 +43,9 @@ const PlayDateForm = (props) => {
             placeholder="Location"
             name="location"
             value={props.location}
-            onChange={props.handleInputChange}
+            onChange={(event) => {
+              props.setLocation(event.target.value);
+            }}
           />
         </div>
         <button type="submit" className="btn btn-light-blue">
