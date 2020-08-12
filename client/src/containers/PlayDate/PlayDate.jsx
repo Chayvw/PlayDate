@@ -25,11 +25,11 @@ class PlayDate extends Component {
       <div>
         <div className="container">
           <h1>Play Date's</h1>
-          <ul class="list-group">
+          <ul className="list-group">
             <div>
               {this.state.playdates.map((playdate) => (
                 <div key={playdate._id}>
-                  <li class="list-group-item">
+                  <li className="list-group-item">
                     {playdate.name},{playdate.date},{playdate.location}
                   </li>
                 </div>

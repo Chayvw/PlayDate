@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PlayDateForm from "../../components/PlayDateForm";
 
 class NewPlayDate extends Component {
   state = {
@@ -35,48 +36,13 @@ class NewPlayDate extends Component {
     return (
       <div className="container">
         <h1>PlayDate Event</h1>
-        <form
-          className="text-center border border-light p-5"
-          onSubmit={this.handleSubmit}
-        >
-          <div className="row">
-            <input
-              className="form-control"
-              id="eventName"
-              type="text"
-              placeholder="Event Name"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <br />
-          <div className="row">
-            <input
-              className="form-control"
-              id="date"
-              type="date"
-              name="date"
-              value={this.state.date}
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <br />
-          <div className="row">
-            <input
-              className="form-control"
-              id="location"
-              type="text"
-              placeholder="Location"
-              name="location"
-              value={this.state.location}
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <button type="submit" class="btn btn-light-blue">
-            Submit
-          </button>
-        </form>
+        <PlayDateForm
+          handleSubmit={this.handleSubmit}
+          handleInputChange={this.handleInputChange}
+          name={this.state.name}
+          date={this.state.date}
+          location={this.state.location}
+        />
       </div>
     );
   }
