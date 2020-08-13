@@ -41,6 +41,7 @@ class PlayDate extends Component {
                 <th scope="col">Location</th>
                 <th scope="col">Description</th>
                 <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -58,6 +59,11 @@ class PlayDate extends Component {
                         Update
                       </button>
                     </Link>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-light-blue">
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
