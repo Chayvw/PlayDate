@@ -6,11 +6,12 @@ const NewPlayDate = (props) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/api/playdate", { name, date, location })
+      .post("/api/playdate", { name, date, location, description })
       .then((response) => {
         console.log(response.data);
         // When clicking submit will redirect to playdate page
@@ -30,9 +31,11 @@ const NewPlayDate = (props) => {
         setName={setName}
         setDate={setDate}
         setLocation={setLocation}
+        setDescription={setDescription}
         name={name}
         date={date}
         location={location}
+        description={description}
       />
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {Link} from "react-router-dom"
+import Moment from 'react-moment';
 
 class PlayDate extends Component {
   state = {
@@ -33,7 +34,7 @@ class PlayDate extends Component {
                   <li className="list-group-item">
                     {/* TODO: Convert playdate.date to readable format using MomentJS */}
                     <Link to={`/playdate/${playdate._id}`}>
-                    {playdate.name} - {playdate.date} - {playdate.location}
+                    {playdate.name} - <Moment format="MM-DD-YYYY">{playdate.date}</Moment> - {playdate.location} - {playdate.description}
                     </Link>
                     
                   </li>

@@ -51,6 +51,7 @@ router.put("/api/playdate/:id", (req, res) => {
         name: req.body.name,
         date: req.body.date,
         location: req.body.location,
+        description: req.body.description,
         //   modified: Date.now()
       },
     },
