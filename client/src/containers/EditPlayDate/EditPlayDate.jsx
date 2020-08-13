@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import PlayDateForm from "../../components/PlayDateForm";
 
-const NewPlayDate = (props) => {
+const EditPlayDate = (props) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
 
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`/api/playdate/${id}`)
+      .then((response) => {
+        console.log(response);
+        setName(response.data.data.name);
+        setDate(response.data.data.date);
+        setLocation(response.data.data.location);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/api/playdate", { name, date, location })
+      .put(`/api/playdate/${id}`, { name, date, location })
       .then((response) => {
         console.log(response.data);
         // When clicking submit will redirect to playdate page
@@ -20,7 +37,6 @@ const NewPlayDate = (props) => {
         console.log(err);
       });
   };
-
 
   return (
     <div className="container">
@@ -38,4 +54,4 @@ const NewPlayDate = (props) => {
   );
 };
 
-export default NewPlayDate;
+export default EditPlayDate;

@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import Profile from "./containers/Profile/Profile";
 import PlayDate from "./containers/PlayDate/PlayDate";
 import NewPlayDate from "./containers/NewPlayDate/NewPlayDate";
+import EditPlayDate from "./containers/EditPlayDate/EditPlayDate";
 
 function App() {
   useEffect(() => {
@@ -31,7 +32,9 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/playdate" component={PlayDate} />
+        <Route exact path="/playdate/:id" component={EditPlayDate} />
         <Route exact path="/newplaydate" component={NewPlayDate} />
+        {/* <Route exact path="/playdate/new" component={NewPlayDate} /> */}
         <Route component={NoMatch} />
       </Switch>
     </Router>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom"
 
 class PlayDate extends Component {
   state = {
@@ -30,7 +31,11 @@ class PlayDate extends Component {
               {this.state.playdates.map((playdate) => (
                 <div key={playdate._id}>
                   <li className="list-group-item">
-                    {playdate.name},{playdate.date},{playdate.location}
+                    {/* TODO: Convert playdate.date to readable format using MomentJS */}
+                    <Link to={`/playdate/${playdate._id}`}>
+                    {playdate.name} - {playdate.date} - {playdate.location}
+                    </Link>
+                    
                   </li>
                 </div>
               ))}
