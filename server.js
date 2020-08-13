@@ -6,6 +6,7 @@ const app = express();
 const UsersController = require("./controllers/usersController");
 const ProfilesController = require("./controllers/profilesController");
 const playDateController = require("./controllers/playDateController");
+const authController = require("./controllers/authController");
 // const NewPlayDateController = require("./controllers/NewPlayDateController");
 
 const PORT = process.env.PORT || 3001;
@@ -24,6 +25,7 @@ app.get("/api/config", (req, res) => {
 app.use(UsersController);
 app.use(ProfilesController);
 app.use(playDateController);
+app.use(authController);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
@@ -33,6 +35,7 @@ mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/playdatedb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => {
     console.log("Successfully connected to database.");

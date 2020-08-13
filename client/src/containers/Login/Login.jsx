@@ -1,36 +1,86 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
+const Login = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-class Login extends Component {
-  render() {
-    return (
-      <div className="container">
-        <form className="text-center border border-light p-5">
-          <p className="h4 mb-4">LogIn</p>
-          <input
-            type="email"
-            id="defaultLoginFormEmail"
-            className="form-control mb-4"
-            placeholder="E-mail"
-          />
-          <input
-            type="password"
-            id="defaultLoginFormPassword"
-            className="form-control mb-4"
-            placeholder="Password"
-          />
-          <button type="submit" className="btn btn-light-blue">
-            Submit
+  // const status = useContext(StatusContext);
+
+  // const user = useContext(UserContext);
+
+  // useEffect(() => {
+  //   return () => {
+  //     status.dispatch({
+  //       type: "SET_MESSAGE",
+  //       message: "",
+  //       messageType: "success",
+  //     });
+  //   };
+  // }, []);
+
+  const handleSubmit = (e) => {
+    // let config = {
+    //   headers: {
+    //     auth: user.jwt,
+    //   },
+    // };
+    e.preventDefault();
+    // axios call will go here 
+
+
+  };
+
+  return (
+    <div className="container">
+      <div className="row">
+        <form className="col s12" onSubmit={props.handleSubmit}>
+          <div className="row">
+            <div className="input-field col s12">
+              <input
+                id="email"
+                type="text"
+                name="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+
+              />
+              <label htmlFor="email">Email Address</label>
+            </div>
+            <div className="input-field col s4">
+              <label>
+                <input
+                  id="password"
+                  type="passwprd"
+                  name="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+                <span>Password</span>
+              </label>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col s12">
+            <button
+            className="btn waves-effect waves-light"
+            type="submit"
+          >
+            Login
           </button>
+
+            </div>
+          </div>
         </form>
+  );
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Login;
-
-
-
 // import React from 'react';
 // import Button from '@material-ui/core/Button';
 // import CssBaseline from '@material-ui/core/CssBaseline';
@@ -111,6 +161,7 @@ export default Login;
 //             id="password"
 //             autoComplete="current-password"
 //           />
+
   
 //           <Button
 //             type="submit"
