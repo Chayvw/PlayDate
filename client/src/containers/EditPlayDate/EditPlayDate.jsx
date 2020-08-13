@@ -7,6 +7,7 @@ const EditPlayDate = (props) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
+  const [description, setDescription] = useState("");
 
   const { id } = useParams();
 
@@ -18,6 +19,7 @@ const EditPlayDate = (props) => {
         setName(response.data.data.name);
         setDate(response.data.data.date);
         setLocation(response.data.data.location);
+        setDescription(response.data.data.description);
       })
       .catch((err) => {
         console.log(err);
@@ -27,7 +29,7 @@ const EditPlayDate = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put(`/api/playdate/${id}`, { name, date, location })
+      .put(`/api/playdate/${id}`, { name, date, location, description })
       .then((response) => {
         console.log(response.data);
         // When clicking submit will redirect to playdate page
@@ -46,9 +48,11 @@ const EditPlayDate = (props) => {
         setName={setName}
         setDate={setDate}
         setLocation={setLocation}
+        setDescription={setDescription}
         name={name}
         date={date}
         location={location}
+        description={description}
       />
     </div>
   );

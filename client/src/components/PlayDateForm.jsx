@@ -48,6 +48,20 @@ const PlayDateForm = (props) => {
             }}
           />
         </div>
+        <br />
+        <div className="row">
+          <textarea 
+            className="form-control rounded-0"
+            rows="10"
+            id="description"
+            type="text"
+            name="description"
+            value={props.description}
+            onChange={(event) => {
+              props.setDescription(event.target.value);
+            }}
+          />
+        </div>
         <button type="submit" className="btn btn-light-blue">
           Submit
         </button>
@@ -55,5 +69,7 @@ const PlayDateForm = (props) => {
     </div>
   );
 };
+
+
 
 export default PlayDateForm;

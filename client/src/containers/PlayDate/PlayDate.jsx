@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import Moment from "react-moment";
 
 class PlayDate extends Component {
   state = {
@@ -8,6 +9,10 @@ class PlayDate extends Component {
   };
 
   componentDidMount() {
+    this.getPlayDates();
+  }
+
+  getPlayDates = () => {
     axios
       .get("/api/playdate")
       .then((response) => {
@@ -19,31 +24,74 @@ class PlayDate extends Component {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
+
+  deletePlayDate = (id) => {
+    axios
+      .delete(`/api/playdate/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        this.getPlayDates();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
       <div>
         <div className="container">
           <h1>Play Date's</h1>
-          <ul className="list-group">
-            <div>
-              {this.state.playdates.map((playdate) => (
-                <div key={playdate._id}>
-                  <li className="list-group-item">
-                    {/* TODO: Convert playdate.date to readable format using MomentJS */}
+          {/* <li className="list-group-item">
                     <Link to={`/playdate/${playdate._id}`}>
-                    {playdate.name} - {playdate.date} - {playdate.location}
+                    {playdate.name} - <Moment format="MM-DD-YYYY">{playdate.date}</Moment> - {playdate.location} - {playdate.description}
                     </Link>
                     
-                  </li>
-                </div>
+                  </li> */}
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Event</th>
+                <th scope="col">Date</th>
+                <th scope="col">Location</th>
+                <th scope="col">Description</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.playdates.map((playdate) => (
+                <tr key={playdate._id}>
+                  <td>{playdate.name}</td>
+                  <td>
+                    <Moment format="MM-DD-YYYY">{playdate.date}</Moment>
+                  </td>
+                  <td>{playdate.location}</td>
+                  <td>{playdate.description}</td>
+                  <td>
+                    <Link to={`/playdate/${playdate._id}`}>
+                      <button type="button" className="btn btn-light-blue">
+                        Update
+                      </button>
+                    </Link>
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      className="btn btn-light-blue"
+                      onClick={() => {
+                        this.deletePlayDate(playdate._id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
               ))}
-            </div>
-            <div>
-              {this.state.playdates.length === 0 && <p>no play dates</p>}
-            </div>
-          </ul>
+            </tbody>
+          </table>
+          <div>{this.state.playdates.length === 0 && <p>no play dates</p>}</div>
         </div>
       </div>
     );
