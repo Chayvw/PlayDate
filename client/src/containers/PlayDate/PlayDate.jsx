@@ -9,6 +9,10 @@ class PlayDate extends Component {
   };
 
   componentDidMount() {
+    this.getPlayDates();
+  }
+
+  getPlayDates = () => {
     axios
       .get("/api/playdate")
       .then((response) => {
@@ -20,7 +24,19 @@ class PlayDate extends Component {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
+
+  deletePlayDate = (id) => {
+    axios
+      .delete(`/api/playdate/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        this.getPlayDates();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
     return (
@@ -55,13 +71,19 @@ class PlayDate extends Component {
                   <td>{playdate.description}</td>
                   <td>
                     <Link to={`/playdate/${playdate._id}`}>
-                      <button type="button" class="btn btn-light-blue">
+                      <button type="button" className="btn btn-light-blue">
                         Update
                       </button>
                     </Link>
                   </td>
                   <td>
-                    <button type="button" class="btn btn-light-blue">
+                    <button
+                      type="button"
+                      className="btn btn-light-blue"
+                      onClick={() => {
+                        this.deletePlayDate(playdate._id);
+                      }}
+                    >
                       Delete
                     </button>
                   </td>
