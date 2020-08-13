@@ -34,27 +34,27 @@ router.post("/api/signup", (req, res) => {
     });
 });
 
-router.post("/api/login", (req, res) => {
-  db.User.findOne({
-    email: req.body.email,
-  })
-    .then((dbModel) => {
-      if (!dbModel) {
-        return res.json("Email or password is incorrect");
-      }
-      else if (!dbModel.validPassword(req.body.password)) {
-        return res.json("Email or password is incorrect")
-      }
-      else res.json(dbModel);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: true,
-        data: null,
-        message: "Unable to create user",
-      });
-    });
+// router.post("/api/login", (req, res) => {
+//   db.User.findOne({
+//     email: req.body.email,
+//   })
+//     .then((dbModel) => {
+//       if (!dbModel) {
+//         return res.json("Email or password is incorrect");
+//       }
+//       else if (!dbModel.validPassword(req.body.password)) {
+//         return res.json("Email or password is incorrect")
+//       }
+//       else res.json(dbModel);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({
+//         error: true,
+//         data: null,
+//         message: "Unable to create user",
+//       });
+//     });
 
     // router.get("/api/populateduser", (req, res) => {
     //   db.User.find({})
@@ -66,6 +66,6 @@ router.post("/api/login", (req, res) => {
     //       res.json(err);
     //     });
     // });
-});
+// });
 
 module.exports = router;
