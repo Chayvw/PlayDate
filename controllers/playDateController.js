@@ -5,6 +5,7 @@ const db = require("../models");
 // Create
 router.post("/api/playdate", (req, res) => {
     console.log(req.body.headers);
+    
   db.PlayDate.create(req.body)
     .then((createdPlayDate) => {
       res.json({
