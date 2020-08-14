@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { purple } from "@material-ui/core/colors";
 
-
 class PlayDate extends Component {
   state = {
     playdates: [],
@@ -46,10 +45,9 @@ class PlayDate extends Component {
       backgroundColor: "rgb(124, 67, 189, .5)",
       padding: "10px",
       fontFamily: "Arial",
-      maxLength: "100%"
+      maxLength: "100%",
     };
     return (
-      
       <div>
         <div className="container" style={mystyle}>
           <h1>Play Dates</h1>
@@ -106,7 +104,6 @@ class PlayDate extends Component {
       </div>
     );
   }
-
 }
 
 export default PlayDate;

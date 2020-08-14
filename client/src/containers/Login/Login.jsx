@@ -1,6 +1,6 @@
-import React, { useEffect , useContext, useState } from 'react';
+import React, { useEffect, useContext, useState } from "react";
 // import { response } from 'express';
-import axios from 'axios';
+import axios from "axios";
 import StatusContext from "../../utils/StatusContext";
 import UserContext from "../../utils/UserContext";
 // import { Link } from "react-router-dom";
@@ -13,24 +13,21 @@ const Login = (props) => {
 
   const user = useContext(UserContext);
 
-
-
   const handleSubmit = (e) => {
     // console.log(email, password)
-    
+
     e.preventDefault();
 
-    axios.post("/api/login", {email:email , password:password}).then((response) =>{
-      // console.log(response.data);
-      // user.handleSubmit(response.data.data)
-      user.handleLogin(response.data.data);
-     
-
-    }).catch((err) => {
-      console.log(err);
-    });
-
-
+    axios
+      .post("/api/login", { email: email, password: password })
+      .then((response) => {
+        // console.log(response.data);
+        // user.handleSubmit(response.data.data)
+        user.handleLogin(response.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -47,7 +44,6 @@ const Login = (props) => {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-
               />
               <label htmlFor="email">Email Address</label>
             </div>
@@ -68,16 +64,15 @@ const Login = (props) => {
           </div>
           <div className="row">
             <div className="col s12">
-            {/* <Link to={`/playdate`}> */}
-            <button className="btn waves-effect waves-light"type="submit"> 
-            Login
-          </button>
-          {/* </Link> */}
-
+              {/* <Link to={`/playdate`}> */}
+              <button className="btn waves-effect waves-light" type="submit">
+                Login
+              </button>
+              {/* </Link> */}
             </div>
           </div>
         </form>
-  );
+        );
       </div>
     </div>
   );
