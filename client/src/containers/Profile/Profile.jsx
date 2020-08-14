@@ -29,30 +29,18 @@ class Profile extends Component {
       <div>
         <div className="container">
           <h1>Profile</h1>
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Age</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Size</th>
-                <th scope="col">City</th>
-                <th scope="col">State</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.profiles.map((profile) => (
-                <tr key={profile._id}>
-                  <td>{profile.name}</td>
-                  <td>{profile.age}</td>
-                  <td>{profile.gender}</td>
-                  <td>{profile.size}</td>
-                  <td>{profile.city}</td>
-                  <td>{profile.state}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <ul class="list-group">
+            {this.state.profiles.map((profile) => (
+              <li key={profile._id}>
+                <li class="list-group-item">Name: {profile.name}</li>
+                <li class="list-group-item">Age: {profile.age}</li>
+                <li class="list-group-item">Gender: {profile.gender}</li>
+                <li class="list-group-item">Size: {profile.size}</li>
+                <li class="list-group-item">City: {profile.city}</li>
+                <li class="list-group-item">State: {profile.state}</li>
+              </li>
+            ))}
+          </ul>
           <div>{this.state.profiles.length === 0 && <p>no profiles</p>}</div>
         </div>
       </div>
