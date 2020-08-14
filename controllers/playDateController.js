@@ -1,10 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const jwt = require("jsonwebtoken");
 
 // Create
 router.post("/api/playdate", (req, res) => {
-    console.log(req.body.headers);
+    console.log(req.headers.auth);
+    // jwt.verify(req.headers.auth, 'playdateprivatekey', function(err, decoded) {
+    //     if(err) {
+    //         console.log("Decoding token error");
+    //         console.log(err);
+    //     }else {
+    //         console.log(decoded)
+    //     }
+    //   });
   db.PlayDate.create(req.body)
     .then((createdPlayDate) => {
       res.json({
