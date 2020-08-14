@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import { purple } from "@material-ui/core/colors";
+
 
 class PlayDate extends Component {
   state = {
@@ -39,10 +41,18 @@ class PlayDate extends Component {
   };
 
   render() {
+    const mystyle = {
+      color: "white",
+      backgroundColor: "rgb(124, 67, 189, .5)",
+      padding: "10px",
+      fontFamily: "Arial",
+      maxLength: "100%"
+    };
     return (
+      
       <div>
-        <div className="container">
-          <h1>Play Date's</h1>
+        <div className="container" style={mystyle}>
+          <h1>Play Dates</h1>
           {/* <li className="list-group-item">
                     <Link to={`/playdate/${playdate._id}`}>
                     {playdate.name} - <Moment format="MM-DD-YYYY">{playdate.date}</Moment> - {playdate.location} - {playdate.description}
