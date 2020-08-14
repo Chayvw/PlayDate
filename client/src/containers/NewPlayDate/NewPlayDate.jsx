@@ -11,19 +11,10 @@ const NewPlayDate = (props) => {
     const [description, setDescription] = useState("");
 
 
-    const status = useContext(StatusContext);
+    // const status = useContext(StatusContext);
     const user = useContext(UserContext);
 
-    // useEffect(() => {
-    //     return () => {
-    //         status.dispatch({
-    //             type: "SET_MESSAGE",
-    //             message: "",
-    //             messageType: "success",
-    //         });
-    //     };
-    // }, []);
-
+  
     const handleSubmit = (event) => {
         let config = {
             headers: {

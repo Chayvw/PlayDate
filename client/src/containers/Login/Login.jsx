@@ -3,7 +3,7 @@ import React, { useEffect , useContext, useState } from 'react';
 import axios from 'axios';
 import StatusContext from "../../utils/StatusContext";
 import UserContext from "../../utils/UserContext";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import User from "../../../models/User"
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -13,23 +13,15 @@ const Login = (props) => {
 
   const user = useContext(UserContext);
 
-  // useEffect(() => {
-  //   return () => {
-  //     status.dispatch({
-  //       type: "SET_MESSAGE",
-  //       message: "",
-  //       messageType: "success",
-  //     });
-  //   }; 
-  // }, []);
+
 
   const handleSubmit = (e) => {
-    console.log(email, password)
+    // console.log(email, password)
     
     e.preventDefault();
 
     axios.post("/api/login", {email:email , password:password}).then((response) =>{
-      console.log(response.data);
+      // console.log(response.data);
       // user.handleSubmit(response.data.data)
       user.handleLogin(response.data.data);
      
@@ -76,11 +68,11 @@ const Login = (props) => {
           </div>
           <div className="row">
             <div className="col s12">
-            <Link to={`/playdate`}>
+            {/* <Link to={`/playdate`}> */}
             <button className="btn waves-effect waves-light"type="submit"> 
             Login
           </button>
-          </Link>
+          {/* </Link> */}
 
             </div>
           </div>

@@ -11,9 +11,9 @@ router.post("/api/login", async (req, res) => {
     db.User.findOne({ email: email }).then((foundUser) => {
         // console.log("User Found: ", foundUser);
         if (foundUser.password === req.body.password) {
-            // send back a token.
-            const privateKey = "process.env.JWT_PASSWORD"
-            jwt.sign({ email: foundUser.email }, privateKey, function (err, token) {
+           
+            const privateKey = process.env.JWT_PASSWORD
+            jwt.sign({ id: foundUser._id }, privateKey, function (err, token) {
                 console.log(token);
                 res.json({
                     error: false,
@@ -31,30 +31,5 @@ router.post("/api/login", async (req, res) => {
     });
 });
 
-// router.post("/api/login", (req, res) => {
-//     db.User.findOne({ email: req.body.email }).then(foundUser => {
-//         if (foundUser.password === req.body.password) {
-//             const privateKey = "playdatprivatekey";
-//             jwt.sign({ email: req.body.email }, privateKey, function(err, token) {
-//                 console.log(token);
-//                 res.status(500).json({
-//                     error: false,
-//                     data: token,
-//                     message: "Authenicated user",
-//                 });
-//               });
 
-//         } else {
-//             res.status(401).json({
-//                 error: true,
-//                 data: null,
-//                 message: " unable to Authenicated user",
-//             });
-//         }
-
-
-
-
-//     });
-// });
 module.exports = router; 

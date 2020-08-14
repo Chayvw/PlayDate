@@ -15,7 +15,7 @@ const EditPlayDate = (props) => {
     axios
       .get(`/api/playdate/${id}`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setName(response.data.data.name);
         setDate(response.data.data.date);
         setLocation(response.data.data.location);
@@ -31,7 +31,7 @@ const EditPlayDate = (props) => {
     axios
       .put(`/api/playdate/${id}`, { name, date, location, description })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         // When clicking submit will redirect to playdate page
         props.history.push("/playdate");
       })
