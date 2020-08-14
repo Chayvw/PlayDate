@@ -9,7 +9,7 @@ router.post("/api/login", async (req, res) => {
     const user = await db.User.findOne({email})
     console.log(user);
     db.User.findOne({ email: email }).then((foundUser) => {
-        // console.log("FOUND USER: ", foundUser);
+        // console.log("User Found: ", foundUser);
         if (foundUser.password === req.body.password) {
             // send back a token.
             const privateKey = "process.env.JWT_PASSWORD"
