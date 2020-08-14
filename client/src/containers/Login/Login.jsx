@@ -13,15 +13,15 @@ const Login = (props) => {
 
   const user = useContext(UserContext);
 
-  // useEffect(() => {
-  //   return () => {
-  //     status.dispatch({
-  //       type: "SET_MESSAGE",
-  //       message: "",
-  //       messageType: "success",
-  //     });
-  //   }; 
-  // }, []);
+  useEffect(() => {
+    return () => {
+      status.dispatch({
+        type: "SET_MESSAGE",
+        message: "",
+        messageType: "success",
+      });
+    }; 
+  }, []);
 
   const handleSubmit = (e) => {
     console.log(email, password)
