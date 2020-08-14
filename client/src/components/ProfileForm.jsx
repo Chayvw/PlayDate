@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const ProfileForm = (props) => {
-    return (
-        <div>
+  return (
+    <div>
       <form
         className="text-center border border-light p-5"
         onSubmit={props.handleSubmit}
@@ -62,6 +62,7 @@ const ProfileForm = (props) => {
             }}
           />
         </div>
+        <br />
         <div className="row">
           <input
             className="form-control"
@@ -75,6 +76,7 @@ const ProfileForm = (props) => {
             }}
           />
         </div>
+        <br />
         <div className="row">
           <input
             className="form-control"
@@ -88,13 +90,12 @@ const ProfileForm = (props) => {
             }}
           />
         </div>
-        
         <button type="submit" className="btn btn-light-blue">
           Submit
         </button>
       </form>
     </div>
-    );
+  );
 };
 
 export default ProfileForm;
