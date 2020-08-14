@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./containers/Home/Home";
 import NoMatch from "./containers/NoMatch/NoMatch";
 import SignUp from "./containers/SignUp/SignUp";
 import Login from "./containers/Login/Login";
+import UserContext from "./utils/UserContext";
+// import StatusContext from "./utils/StatusContext";
 import NavBar from "./components/NavBar";
 import Profile from "./containers/Profile/Profile";
 import PlayDate from "./containers/PlayDate/PlayDate";
@@ -22,8 +24,28 @@ function App() {
         console.log(err);
       });
   }, []);
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    handleStartup();
+  }, []);
+
+  const handleLogin = (token) => {
+    setJwt(token);
+    window.localStorage.setItem("jwt", token);
+  };
+
+  const handleStartup = () => {
+    const tokenFromStorage = window.localStorage.getItem("jwt");
+    if (tokenFromStorage) {
+      setJwt(tokenFromStorage);
+    }
+  };
+
+  // const [jwt, setJwt] = useState("");
   return (
     <Router>
+      <UserContext.Provider value ={{jwt, handleLogin}}>
       <NavBar />
       <Switch>
         <Route exact path="/" component={PlayDate} />
@@ -37,6 +59,7 @@ function App() {
         {/* <Route exact path="/playdate/new" component={NewPlayDate} /> */}
         <Route component={NoMatch} />
       </Switch>
+      </UserContext.Provider>
     </Router>
   );
 }
