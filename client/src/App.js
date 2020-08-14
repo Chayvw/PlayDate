@@ -49,7 +49,7 @@ function App() {
       <UserContext.Provider value ={{jwt, handleLogin}}>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={PlayDate} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
