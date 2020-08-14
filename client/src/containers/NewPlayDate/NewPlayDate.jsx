@@ -14,15 +14,15 @@ const NewPlayDate = (props) => {
     const status = useContext(StatusContext);
     const user = useContext(UserContext);
 
-    useEffect(() => {
-        return () => {
-            status.dispatch({
-                type: "SET_MESSAGE",
-                message: "",
-                messageType: "success",
-            });
-        };
-    }, []);
+    // useEffect(() => {
+    //     return () => {
+    //         status.dispatch({
+    //             type: "SET_MESSAGE",
+    //             message: "",
+    //             messageType: "success",
+    //         });
+    //     };
+    // }, []);
 
     const handleSubmit = (event) => {
         let config = {

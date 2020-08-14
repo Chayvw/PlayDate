@@ -9,7 +9,7 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const status = useContext(StatusContext);
+  // const status = useContext(StatusContext);
 
   const user = useContext(UserContext);
 
@@ -28,7 +28,7 @@ const Login = (props) => {
     
     e.preventDefault();
 
-    axios.post("/api/login", {email , password}).then((response) =>{
+    axios.post("/api/login", {email:email , password:password}).then((response) =>{
       console.log(response.data);
       // user.handleSubmit(response.data.data)
       user.handleLogin(response.data.data);

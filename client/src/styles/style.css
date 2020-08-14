@@ -1,4 +1,14 @@
 .navbar {
     background-color: white !important;
   }
-  
+
+
+  body {
+    padding-bottom: 100;
+    background-image: url(../assets/images/playdate.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    min-height: 100%;
+
+  }

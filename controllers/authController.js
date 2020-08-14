@@ -11,9 +11,8 @@ router.post("/api/login", async (req, res) => {
     db.User.findOne({ email: email }).then((foundUser) => {
         // console.log("User Found: ", foundUser);
         if (foundUser.password === req.body.password) {
-           
-            const privateKey = "playdateprivatekey"
-            // const privateKey = process.env.JWT_PASSWORD;
+            // send back a token.
+            const privateKey = "process.env.JWT_PASSWORD"
             jwt.sign({ email: foundUser.email }, privateKey, function (err, token) {
                 console.log(token);
                 res.json({
