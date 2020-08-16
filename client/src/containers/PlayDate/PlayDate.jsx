@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import Typical from "react-typical";
 import { purple } from "@material-ui/core/colors";
 
 class PlayDate extends Component {
@@ -47,17 +48,38 @@ class PlayDate extends Component {
       fontFamily: "Arial",
       maxLength: "100%",
     };
+    const tablestyle = {
+      color: "black",
+      backgroundColor: "rgb(255, 255, 255, .5)",
+      padding: "10px",
+      fontFamily: "Arial",
+      maxLength: "100%"
+    };
     return (
       <div>
         <div className="container" style={mystyle}>
           <h1>Play Dates</h1>
+          <Typical
+            steps={[
+              "Welcome to PlayDate!",
+              1000,
+              "The doggy date app",
+              500,
+              "Click on an event to attend",
+              500,
+              "Or create your own event!",
+              500,
+            ]}
+            loop={Infinity}
+            wrapper="p"
+          />
           {/* <li className="list-group-item">
                     <Link to={`/playdate/${playdate._id}`}>
                     {playdate.name} - <Moment format="MM-DD-YYYY">{playdate.date}</Moment> - {playdate.location} - {playdate.description}
                     </Link>
                     
                   </li> */}
-          <table className="table">
+          <table className="table" style={tablestyle}>
             <thead>
               <tr>
                 <th scope="col">Event</th>
