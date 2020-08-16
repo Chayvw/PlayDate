@@ -25,10 +25,22 @@ class Profile extends Component {
   };
 
   render() {
+    const mystyle = {
+      color: "black",
+      backgroundColor: "rgb(124, 67, 189, .5)",
+      padding: "10px",
+      fontFamily: "Arial",
+      maxLength: "100%",
+    };
+    const profilestyle = {
+      color: "white",
+      fontFamily: "Arial",
+      maxLength: "100%",
+    };
     return (
       <div>
-        <div className="container">
-          <h1>Profile</h1>
+        <div className="container" style={mystyle}>
+          <h1 style={profilestyle}>Profile</h1>
           <ul class="list-group">
             {this.state.profiles.map((profile) => (
               <li key={profile._id}>
