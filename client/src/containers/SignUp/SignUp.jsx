@@ -31,7 +31,7 @@ class SignUp extends Component {
           className="text-center border border-light p-5"
           onSubmit={this.submitForm}
         >
-          <p className="h4 mb-4">SignUp</p>
+          <p className="h4 mb-4">Sign Up</p>
           <input
             type="email"
             name="email"
