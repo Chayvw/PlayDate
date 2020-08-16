@@ -32,40 +32,37 @@ const Login = (props) => {
 
   return (
     <div className="container">
-      <div className="row">
-        <form className="col s12" onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="input-field col s12">
+        <form className="text-center border border-light p-5" onSubmit={handleSubmit}>
+             <p className="h4 mb-4">Login</p>
               <input
                 id="email"
                 type="text"
                 name="email"
+                className="form-control mb-4"
+                placeholder="E-mail"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
+                  
                 }}
               />
-              <label htmlFor="email">Email Address</label>
-            </div>
-            <div className="input-field col s4">
               <label>
                 <input
                   id="password"
                   type="passwprd"
                   name="password"
+                  className="form-control mb-4"
+                  placeholder="Password"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
                 />
-                <span>Password</span>
               </label>
-            </div>
-          </div>
           <div className="row">
             <div className="col s12">
               {/* <Link to={`/playdate`}> */}
-              <button className="btn waves-effect waves-light" type="submit">
+              <button className="btn btn-light-blue" type="submit">
                 Login
               </button>
               {/* </Link> */}
@@ -74,7 +71,6 @@ const Login = (props) => {
         </form>
         );
       </div>
-    </div>
   );
 };
 
