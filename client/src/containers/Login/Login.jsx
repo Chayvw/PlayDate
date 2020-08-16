@@ -46,7 +46,6 @@ const Login = (props) => {
                   
                 }}
               />
-              <label>
                 <input
                   id="password"
                   type="passwprd"
@@ -57,8 +56,7 @@ const Login = (props) => {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
-                />
-              </label>
+                />   
           <div className="row">
             <div className="col s12">
               {/* <Link to={`/playdate`}> */}
