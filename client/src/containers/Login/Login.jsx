@@ -30,8 +30,15 @@ const Login = (props) => {
       });
   };
 
+  const mystyle = {
+    color: "white",
+    backgroundColor: "rgb(124, 67, 189, .5)",
+    padding: "10px",
+    fontFamily: "Arial",
+    maxLength: "100%",
+  };
   return (
-    <div className="container">
+    <div className="container" style={mystyle}>
         <form className="text-center border border-light p-5" onSubmit={handleSubmit}>
              <p className="h4 mb-4">Login</p>
               <input
@@ -67,7 +74,7 @@ const Login = (props) => {
             </div>
           </div>
         </form>
-        );
+        
       </div>
   );
 };
