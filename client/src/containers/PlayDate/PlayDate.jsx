@@ -79,7 +79,7 @@ class PlayDate extends Component {
                     </Link>
                     
                   </li> */}
-          <table className="table">
+          <table className="table" style={tablestyle}>
             <thead>
               <tr>
                 <th scope="col">Event</th>
