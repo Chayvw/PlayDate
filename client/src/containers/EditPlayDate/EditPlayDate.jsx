@@ -39,9 +39,15 @@ const EditPlayDate = (props) => {
         console.log(err);
       });
   };
-
+  const mystyle = {
+    color: "white",
+    backgroundColor: "rgb(124, 67, 189, .5)",
+    padding: "10px",
+    fontFamily: "Arial",
+    maxLength: "100%",
+  };
   return (
-    <div className="container">
+    <div className="container" style={mystyle}>
       <h1>PlayDate Event</h1>
       <PlayDateForm
         handleSubmit={handleSubmit}
