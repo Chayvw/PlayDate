@@ -25,8 +25,15 @@ class SignUp extends Component {
   };
 
   render() {
+    const mystyle = {
+      color: "white",
+      backgroundColor: "rgb(124, 67, 189, .5)",
+      padding: "10px",
+      fontFamily: "Arial",
+      maxLength: "100%",
+    };
     return (
-      <div className="container">
+      <div className="container" style={mystyle}>
         <form
           className="text-center border border-light p-5"
           onSubmit={this.submitForm}
