@@ -5,10 +5,14 @@
 
   body {
     padding-bottom: 100;
-    background-image: url(../assets/images/playdate.png);
+    /* background-image: url(../assets/images/playdate.png); */
     background-repeat: no-repeat;
     background-size: cover;
     
     min-height: 100%;
 
   }
+
+  ul {
+    list-style-type: none;
+}
