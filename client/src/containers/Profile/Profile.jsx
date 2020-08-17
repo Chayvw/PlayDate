@@ -25,11 +25,26 @@ class Profile extends Component {
   };
 
   render() {
+    const mystyle = {
+      color: "white",
+      backgroundColor: "rgb(124, 67, 189, .5)",
+      padding: "10px",
+      fontFamily: "Arial",
+      maxLength: "100%",
+    };
+
+    const tablestyle = {
+      color: "black",
+      backgroundColor: "rgb(255, 255, 255, .5)",
+      padding: "10px",
+      fontFamily: "Arial",
+      maxLength: "100%",
+    };
     return (
       <div>
-        <div className="container">
+        <div className="container" style={mystyle}>
           <h1>Profile</h1>
-          <ul className="list-group">
+          <ul className="list-group" style={tablestyle}>
             {this.state.profiles.map((profile) => (
               <div key={profile._id}>
                 <div className="list-group-item">Name: {profile.name}</div>
