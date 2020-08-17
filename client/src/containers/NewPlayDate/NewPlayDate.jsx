@@ -23,7 +23,7 @@ const NewPlayDate = (props) => {
     axios
       .post("/api/playdate", { name, date, location, description }, config)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         // When clicking submit will redirect to playdate page
         props.history.push("/playdate");
       })

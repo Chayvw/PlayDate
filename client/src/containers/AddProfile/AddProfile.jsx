@@ -15,7 +15,7 @@ const AddProfile = (props) => {
     axios
       .post("/api/profiles", { name, age, gender, size, city, state })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         // When clicking submit will redirect to profile page
         props.history.push("/profile");
       })

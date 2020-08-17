@@ -5,10 +5,10 @@ const jwt = require("jsonwebtoken")
 
 // Create
 router.post("/api/playdate", (req, res) => {
-    console.log(req.headers.auth);
+    // console.log(req.headers.auth);
     jwt.verify(req.headers.auth, process.env.JWT_PASSWORD, function (err, decoded) {
         if (err) {
-            console.log("Decoding token error");
+            // console.log("Decoding token error");
             console.log(err);
         } else {
             console.log("decoded", decoded)

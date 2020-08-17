@@ -17,9 +17,9 @@ router.post("/api/login", async (req, res) => {
         if (foundUser.password === req.body.password) {
            
             const privateKey = process.env.JWT_PASSWORD || "something"
-            console.log(privateKey)
+            // console.log(privateKey)
             jwt.sign({ id: foundUser._id }, privateKey, function (err, token) {
-                console.log(token);
+                // console.log(token);
                 res.json({
                     error: false,
                     data: token,

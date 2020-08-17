@@ -14,7 +14,7 @@ class Profile extends Component {
     axios
       .get("/api/profiles")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           profiles: response.data.data,
         });

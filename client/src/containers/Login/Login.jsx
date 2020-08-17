@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-// import { response } from 'express';
 import axios from "axios";
 // import StatusContext from "../../utils/StatusContext";
 import UserContext from "../../utils/UserContext";
@@ -20,12 +19,11 @@ const Login = (props) => {
     axios
       .post("/api/login", { email: email, password: password })
       .then((response) => {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         // user.handleSubmit(response.data.data)
         if (response.data.data) {
           user.handleLogin(response.data.data);
           history.push("/playdate");
-          console.log()
         }
       })
       .catch((err) => {

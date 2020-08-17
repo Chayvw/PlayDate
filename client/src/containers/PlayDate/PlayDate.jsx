@@ -18,7 +18,7 @@ class PlayDate extends Component {
     axios
       .get("/api/playdate")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           playdates: response.data.data,
         });
@@ -32,7 +32,7 @@ class PlayDate extends Component {
     axios
       .delete(`/api/playdate/${id}`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.getPlayDates();
       })
       .catch((err) => {
