@@ -1,8 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 // import { response } from 'express';
 import axios from "axios";
 import StatusContext from "../../utils/StatusContext";
 import UserContext from "../../utils/UserContext";
+
 // import { Link } from "react-router-dom";
 // import User from "../../../models/User"
 const Login = (props) => {
@@ -38,9 +40,15 @@ const Login = (props) => {
     maxLength: "100%",
   };
   return (
-    <div className="container" style={mystyle}>
-        <form className="text-center border border-light p-5" onSubmit={handleSubmit}>
-             <p className="h4 mb-4">Login</p>
+    <MDBContainer>
+      <MDBRow className="justify-content-center">
+        <MDBCol xs="12" sm="10" md="8" lg="6">
+          <div className="mt-5" style={mystyle}>
+            <form
+              className="text-center border border-light p-5"
+              onSubmit={handleSubmit}
+            >
+              <p className="h4 mb-4">Login</p>
               <input
                 id="email"
                 type="text"
@@ -50,32 +58,33 @@ const Login = (props) => {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  
                 }}
               />
-                <input
-                  id="password"
-                  type="passwprd"
-                  name="password"
-                  className="form-control mb-4"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />   
-          <div className="row">
-            <div className="col s12">
-              {/* <Link to={`/playdate`}> */}
-              <button className="btn btn-light-blue" type="submit">
-                Login
-              </button>
-              {/* </Link> */}
-            </div>
+              <input
+                id="password"
+                type="passwprd"
+                name="password"
+                className="form-control mb-4"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              <div className="row">
+                <div className="col s12">
+                  {/* <Link to={`/playdate`}> */}
+                  <button className="btn btn-light-blue" type="submit">
+                    Login
+                  </button>
+                  {/* </Link> */}
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-        
-      </div>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 };
 

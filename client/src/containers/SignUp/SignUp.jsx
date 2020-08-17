@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Container from "../../components/Container";
+// import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 class SignUp extends Component {
   state = {
@@ -33,35 +35,37 @@ class SignUp extends Component {
       maxLength: "100%",
     };
     return (
-      <div className="container" style={mystyle}>
-        <form
-          className="text-center border border-light p-5"
-          onSubmit={this.submitForm}
-        >
-          <p className="h4 mb-4">Sign Up</p>
-          <input
-            type="email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            id="defaultLoginFormEmail"
-            className="form-control mb-4"
-            placeholder="E-mail"
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            id="defaultLoginFormPassword"
-            className="form-control mb-4"
-            placeholder="Password"
-          />
-          <button type="submit" className="btn btn-light-blue">
-            Submit
-          </button>
-        </form>
-      </div>
+      <Container>
+        <div className="mt-5" style={mystyle}>
+          <form
+            className="text-center border border-light p-5"
+            onSubmit={this.submitForm}
+          >
+            <p className="h4 mb-4">Sign Up</p>
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              id="defaultLoginFormEmail"
+              className="form-control mb-4"
+              placeholder="E-mail"
+            />
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              id="defaultLoginFormPassword"
+              className="form-control mb-4"
+              placeholder="Password"
+            />
+            <button type="submit" className="btn btn-light-blue">
+              Submit
+            </button>
+          </form>
+        </div>
+      </Container>
     );
   }
 }
