@@ -29,15 +29,15 @@ class Profile extends Component {
           <div>
           <div className="container">
             <h1>Profile</h1>
-            <ul class="list-group">
+            <ul className="list-group">
               {this.state.profiles.map((profile) => (
                 <li key={profile._id}>
-                  <li class="list-group-item">Name: {profile.name}</li>
-                  <li class="list-group-item">Age: {profile.age}</li>
-                  <li class="list-group-item">Gender: {profile.gender}</li>
-                  <li class="list-group-item">Size: {profile.size}</li>
-                  <li class="list-group-item">City: {profile.city}</li>
-                  <li class="list-group-item">State: {profile.state}</li>
+                  <li className="list-group-item">Name: {profile.name}</li>
+                  <li className="list-group-item">Age: {profile.age}</li>
+                  <li className="list-group-item">Gender: {profile.gender}</li>
+                  <li className="list-group-item">Size: {profile.size}</li>
+                  <li className="list-group-item">City: {profile.city}</li>
+                  <li className="list-group-item">State: {profile.state}</li>
                 </li>
               ))}
             </ul>

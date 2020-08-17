@@ -16,11 +16,11 @@ class SignUp extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
 
     API.signUp(this.state)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.props.history.push("/");
       })
       .catch((err) => console.log(err));
