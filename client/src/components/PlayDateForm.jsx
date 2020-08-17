@@ -1,7 +1,6 @@
 import React from "react";
 
 const PlayDateForm = (props) => {
-
   return (
     <div>
       <form
@@ -50,7 +49,7 @@ const PlayDateForm = (props) => {
         </div>
         <br />
         <div className="row">
-          <textarea 
+          <textarea
             className="form-control rounded-0"
             rows="10"
             id="description"
@@ -69,7 +68,5 @@ const PlayDateForm = (props) => {
     </div>
   );
 };
-
-
 
 export default PlayDateForm;

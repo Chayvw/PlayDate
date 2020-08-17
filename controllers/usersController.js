@@ -6,7 +6,6 @@ router.get("/api/signup", (req, res) => {
   res.send("Its working");
 });
 
-
 router.post("/api/signup", (req, res) => {
   db.User.create(req.body)
     .then((dbModel) => {
@@ -21,7 +20,5 @@ router.post("/api/signup", (req, res) => {
       });
     });
 });
-
-
 
 module.exports = router;

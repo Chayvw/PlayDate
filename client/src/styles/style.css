@@ -2,26 +2,26 @@
   background-color: rgb(99, 35, 219);
 }
 .navbar-brand {
-color: white;
+  color: white;
 }
 .nav-link {
-color: white;
+  color: white;
 }
 .playdates {
-color: rgb(51, 114, 185);
-font-weight: bolder;
-font-stretch: extra-expanded;
+  color: rgb(51, 114, 185);
+  font-weight: bolder;
+  font-stretch: extra-expanded;
 }
 .create {
-color: rgb(109, 175, 252);
-font-weight: bolder;
-font-stretch: extra-expanded;
+  color: rgb(109, 175, 252);
+  font-weight: bolder;
+  font-stretch: extra-expanded;
 }
 
 body {
   background-image: url(../assets/images/playdate.png);
   background-repeat: no-repeat;
-  background-size: cover; 
-  min-height: 100vh;
+  background-size: cover;
+  min-height: 100%;
   background-attachment: fixed;
 }

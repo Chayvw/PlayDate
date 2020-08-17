@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import Typical from "react-typical";
-import { purple } from "@material-ui/core/colors";
 
 class PlayDate extends Component {
   state = {
@@ -18,7 +17,7 @@ class PlayDate extends Component {
     axios
       .get("/api/playdate")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           playdates: response.data.data,
         });
@@ -32,7 +31,7 @@ class PlayDate extends Component {
     axios
       .delete(`/api/playdate/${id}`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.getPlayDates();
       })
       .catch((err) => {
@@ -53,7 +52,7 @@ class PlayDate extends Component {
       backgroundColor: "rgb(255, 255, 255, .5)",
       padding: "10px",
       fontFamily: "Arial",
-      maxLength: "100%"
+      maxLength: "100%",
     };
     return (
       <div>
@@ -64,11 +63,11 @@ class PlayDate extends Component {
               "Welcome to PlayDate!",
               1000,
               "The doggy date app",
-              500,
+              1000,
               "Click on an event to attend",
-              500,
+              1000,
               "Or create your own event!",
-              500,
+              1000,
             ]}
             loop={Infinity}
             wrapper="p"

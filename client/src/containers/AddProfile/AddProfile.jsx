@@ -15,7 +15,7 @@ const AddProfile = (props) => {
     axios
       .post("/api/profiles", { name, age, gender, size, city, state })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         // When clicking submit will redirect to profile page
         props.history.push("/profile");
       })
@@ -24,8 +24,16 @@ const AddProfile = (props) => {
       });
   };
 
+  const mystyle = {
+    color: "white",
+    backgroundColor: "rgb(124, 67, 189, .5)",
+    padding: "10px",
+    fontFamily: "Arial",
+    maxLength: "100%",
+  };
+
   return (
-    <div className="container">
+    <div className="container" style={mystyle}>
       <h1>PlayDate Event</h1>
       <ProfileForm
         handleSubmit={handleSubmit}

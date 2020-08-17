@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import PlayDateForm from "../../components/PlayDateForm";
 import UserContext from "../../utils/UserContext";
-import StatusContext from "../../utils/StatusContext";
+// import StatusContext from "../../utils/StatusContext";
 
 const NewPlayDate = (props) => {
   const [name, setName] = useState("");
@@ -23,7 +23,7 @@ const NewPlayDate = (props) => {
     axios
       .post("/api/playdate", { name, date, location, description }, config)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         // When clicking submit will redirect to playdate page
         props.history.push("/playdate");
       })

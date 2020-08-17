@@ -2,7 +2,7 @@ import React from "react";
 
 const tokenContext = React.createContext({
   jwt: "",
-  setJwt: () => {}
+  handleLogin: () => {}
 });
 
 export default tokenContext;

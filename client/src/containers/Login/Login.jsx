@@ -1,31 +1,30 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-// import { response } from 'express';
 import axios from "axios";
-import StatusContext from "../../utils/StatusContext";
+// import StatusContext from "../../utils/StatusContext";
 import UserContext from "../../utils/UserContext";
 
-// import { Link } from "react-router-dom";
-// import User from "../../../models/User"
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const history = useHistory();
   // const status = useContext(StatusContext);
 
   const user = useContext(UserContext);
 
   const handleSubmit = (e) => {
     // console.log(email, password)
-
     e.preventDefault();
-
     axios
       .post("/api/login", { email: email, password: password })
       .then((response) => {
-        // console.log(response.data);
+        // console.log(response.data.data);
         // user.handleSubmit(response.data.data)
-        user.handleLogin(response.data.data);
+        if (response.data.data) {
+          user.handleLogin(response.data.data);
+          history.push("/playdate");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -62,7 +61,7 @@ const Login = (props) => {
               />
               <input
                 id="password"
-                type="passwprd"
+                type="password"
                 name="password"
                 className="form-control mb-4"
                 placeholder="Password"
@@ -73,11 +72,9 @@ const Login = (props) => {
               />
               <div className="row">
                 <div className="col s12">
-                  {/* <Link to={`/playdate`}> */}
                   <button className="btn btn-light-blue" type="submit">
                     Login
                   </button>
-                  {/* </Link> */}
                 </div>
               </div>
             </form>

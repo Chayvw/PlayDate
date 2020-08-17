@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Container from "../../components/Container";
-// import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 class SignUp extends Component {
   state = {
@@ -10,17 +9,17 @@ class SignUp extends Component {
   };
 
   handleChange = (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     this.setState({ [e.target.name]: e.target.value });
   };
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
 
     API.signUp(this.state)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.props.history.push("/");
       })
       .catch((err) => console.log(err));
