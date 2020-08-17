@@ -61,7 +61,7 @@ const Login = (props) => {
               />
               <input
                 id="password"
-                type="passwprd"
+                type="password"
                 name="password"
                 className="form-control mb-4"
                 placeholder="Password"

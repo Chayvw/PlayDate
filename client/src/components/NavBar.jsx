@@ -55,7 +55,7 @@ function NavBar() {
               </Link>
             </div>
           </li>
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link to="/playdate" className="nav-link">
               PlayDates
             </Link>
