@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import PlayDateForm from "../../components/PlayDateForm";
 import UserContext from "../../utils/UserContext";
-import StatusContext from "../../utils/StatusContext";
+// import StatusContext from "../../utils/StatusContext";
 
 const NewPlayDate = (props) => {
   const [name, setName] = useState("");
