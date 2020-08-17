@@ -64,11 +64,11 @@ class PlayDate extends Component {
               "Welcome to PlayDate!",
               1000,
               "The doggy date app",
-              500,
+              1000,
               "Click on an event to attend",
-              500,
+              1000,
               "Or create your own event!",
-              500,
+              1000,
             ]}
             loop={Infinity}
             wrapper="p"
