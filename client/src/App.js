@@ -6,7 +6,6 @@ import NoMatch from "./containers/NoMatch/NoMatch";
 import SignUp from "./containers/SignUp/SignUp";
 import Login from "./containers/Login/Login";
 import UserContext from "./utils/UserContext";
-// import StatusContext from "./utils/StatusContext";
 import NavBar from "./components/NavBar";
 import Profile from "./containers/Profile/Profile";
 import PlayDate from "./containers/PlayDate/PlayDate";
@@ -43,7 +42,7 @@ function App() {
     }
   };
 
-  // const [jwt, setJwt] = useState("");
+  
   return (
     <Router>
       <UserContext.Provider value={{ jwt, handleLogin }}>
