@@ -1,10 +1,8 @@
-import React, { useContext }from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../styles/style.css";
 import UserContext from "../utils/UserContext";
-
-
 
 function NavBar() {
   const user = useContext(UserContext);
@@ -17,8 +15,6 @@ function NavBar() {
   }
 
   return (
-
-  
     <nav className="navbar navbar-expand-lg navbar-dark secondary-color lighten-1">
       <Link to="/" className="navbar-brand">
         PlayDate
@@ -43,6 +39,7 @@ function NavBar() {
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              href="/"
             >
               Account
             </a>
@@ -90,17 +87,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-// import React from "react";
-// import Navbar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
-
-// const NavBar = (props) => {
-//   return (
-//     <Navbar>
-//       <Toolbar>PlayDate</Toolbar>
-//     </Navbar>
-//   );
-// };
-
-// export default NavBar;

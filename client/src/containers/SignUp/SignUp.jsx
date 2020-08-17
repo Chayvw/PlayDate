@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Container from "../../components/Container";
-// import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 class SignUp extends Component {
   state = {

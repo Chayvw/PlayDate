@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import Typical from "react-typical";
 
-
 class PlayDate extends Component {
   state = {
     playdates: [],
@@ -53,7 +52,7 @@ class PlayDate extends Component {
       backgroundColor: "rgb(255, 255, 255, .5)",
       padding: "10px",
       fontFamily: "Arial",
-      maxLength: "100%"
+      maxLength: "100%",
     };
     return (
       <div>
