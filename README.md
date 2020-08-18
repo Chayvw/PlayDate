@@ -2,7 +2,7 @@
 
 ## Description
 
-PlayDate is an app designed for dog owners to create an account for their pup and make events to meet up with other dogs and owners to socialize their pet?
+PlayDate is an app designed for dog owners to create an account for their pup and make events to meet up with other dogs and owners to socialize their pet.
 
 ## Table of Contents
 
